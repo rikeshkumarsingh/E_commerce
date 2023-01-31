@@ -21,11 +21,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	
-		private String name;
+	@Column(nullable = false)
+	private String firstName;
 	private String lastName;
-	@Column(nullable = false,unique = true)
 	
+	@Column(nullable = false,unique = true)
 	private String email;
 	private String password;
 	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
@@ -43,11 +43,11 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 	public String getLastName() {
 		return lastName;
@@ -80,7 +80,7 @@ public class User {
 	public User(User user) {
 		super();
 		this.id = user.getId();
-		this.name = user.getName();
+		this.firstName = user.getFirstName();
 		this.lastName = user.getLastName();
 		this.email = user.getEmail();
 		this.password = user.getPassword();

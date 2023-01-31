@@ -19,7 +19,7 @@ public class role {
 	private Integer id;
 	
 	@Column(nullable = false,unique = true)	
-	private String name;
+	private String firstName;
 	
 	@ManyToMany(mappedBy = "roles")
 	private List<User> users;
@@ -33,11 +33,11 @@ public class role {
 	}
 
 	public String getName() {
-		return name;
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public List<User> getUsers() {
